@@ -249,7 +249,8 @@ module.exports = {
               // is sane and uses Babel options. Instead of options, we use
               // the react-scripts and babel-preset-react-app versions.
               cacheIdentifier: getCacheIdentifier('development', [
-                'babel-plugin-transform-decorators-legacy',
+                '@babel/plugin-proposal-decorators',
+                '@babel/plugin-proposal-class-properties',
                 'babel-plugin-import',
                 'babel-plugin-react-require',
                 'babel-plugin-jsx-classname-transformer',
@@ -262,7 +263,11 @@ module.exports = {
               plugins: [
                 [
                   require.resolve('@babel/plugin-proposal-decorators'),
-                  { legacy: true },
+                  { decoratorsBeforeExport: true },
+                ],
+                [
+                  require.resolve('@babel/plugin-proposal-class-properties'),
+                  { loose: true },
                 ],
                 [
                   require.resolve('babel-plugin-import'),

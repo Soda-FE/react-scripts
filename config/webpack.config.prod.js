@@ -325,6 +325,7 @@ module.exports = {
               // the react-scripts and babel-preset-react-app versions.
               cacheIdentifier: getCacheIdentifier('production', [
                 '@babel/plugin-proposal-decorators',
+                '@babel/plugin-proposal-class-properties',
                 'babel-plugin-import',
                 'babel-plugin-react-require',
                 'babel-plugin-jsx-classname-transformer',
@@ -338,6 +339,10 @@ module.exports = {
                 [
                   require.resolve('@babel/plugin-proposal-decorators'),
                   { legacy: true },
+                ],
+                [
+                  require.resolve('@babel/plugin-proposal-class-properties'),
+                  { loose: true },
                 ],
                 [
                   require.resolve('babel-plugin-import'),
